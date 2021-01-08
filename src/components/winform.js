@@ -16,25 +16,24 @@ const Winform = ({
   const handleSubmitToday = (e) => {
     e.preventDefault();
     // we have state
+    // when I click on submit new input, then this function gets triggered, within this function I am triggering setTodaysWins, which is accepting all the existing 'todayswins' that's being spread in an array (also passed in from props), the second thing being passed in is the text that's being assigned to text from the user. setTodaysWins is being passed down from today
     setTodaysWins([...todayswins, { text: inputText, id: uuid() }]);
     setInputText("");
     setCelebrate(true);
-
     setTimeout(() => {
       setCelebrate(false);
-    }, 2000);
+    }, 900);
   };
 
   return (
     <form>
       <input
         type="text"
-        placeholder="win a little ..."
+        placeholder="I did done did it ..."
         onChange={inputTextHandler}
         value={inputText}
       ></input>
-      <button type="submit" onClick={handleSubmitToday}
-      >
+      <button type="submit" onClick={handleSubmitToday}>
         +
       </button>
     </form>
