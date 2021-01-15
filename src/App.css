@@ -4,14 +4,8 @@
   box-sizing: border-box;
 }
 body {
-  background: rgb(124, 50, 56);
-  background: linear-gradient(
-    331deg,
-    rgba(124, 50, 56, 1) 0%,
-    rgba(183, 36, 92, 1) 35%,
-    rgba(237, 203, 177, 1) 100%
-  );
-  color: white;
+  background: #E3A587;
+  color: #343330;
   font-family: "Amatic SC", cursive;
   min-height: 100vh;
 }
@@ -40,13 +34,13 @@ form button {
   background: white;
 }
 form button {
-  color: rgba(183, 36, 92, 1);
+  color: #DB5A42;
   background: #f7fffe;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 form button:hover {
-  background: rgba(183, 36, 92, 1);
+  background: #DB5A42;
   color: white;
 }
 
@@ -93,7 +87,7 @@ form button:hover {
 }
 
 .trash-btn {
-  background: rgba(183, 36, 92, 1);
+  background: #DB5A42;
   color: white;
   border: none;
   padding: 1rem;
@@ -125,26 +119,31 @@ nav {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background: white;
-  color: rgba(183, 36, 92, 1);
+  background:transparent;
+  color: #DB5A42;
   text-decoration: none;
+  border-bottom: 1px solid #DB5A42;
+  padding: 10px 0;
 }
 
-.nav-links {
+.nav-links  {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   list-style-type: none;
-  font-size: 24px;
-  color: rgba(183, 36, 92, 1);
+  color: #E8AE68;
   text-decoration: none;
   font-weight: 900;
 }
 .nav-links li {
   list-style-type: none;
-  font-size: 34px;
-  color: rgba(183, 36, 92, 1);
+  font-size: 20px;
+  color:#DB5A42;
+  text-decoration: none;
+}
+
+.nav-links :link {
   text-decoration: none;
 }
 

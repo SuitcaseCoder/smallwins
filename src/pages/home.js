@@ -7,8 +7,8 @@ function Home() {
   return (
     <div>
       {/* turn into a component */}
-      <h3>Welcome back ABC</h3>
-      <h4>You've been tracking your wins for X days</h4>
+      <h3>Welcome back -- username --</h3>
+      <h4>You've been tracking your wins for -- x -- days</h4>
       <Today />
       {/* <Past /> */}
     </div>

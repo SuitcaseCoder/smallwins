@@ -25,12 +25,12 @@ function App() {
         <header>
           <h1>Small Wins</h1>
         </header>
-        <TestBackend />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/Past" component={Past} />
           <Route exact path="/Today" component={Today} />
         </Switch>
+        <TestBackend />
         {/* <Home /> */}
       </div>
     </Router>

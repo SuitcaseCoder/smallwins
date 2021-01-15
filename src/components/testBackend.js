@@ -25,7 +25,7 @@ export default class testBackend extends Component{
     render() {
         return (
             <div>
-                <h1>TESTING BACKEND</h1>
+                <h2>TESTING BACKEND</h2>
                 <button onClick={this.handleButtonClick}>get post</button>
                 <ul>
                 {this.state.posts.map(item => (

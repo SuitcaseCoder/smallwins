@@ -14,7 +14,9 @@ function Today() {
   // useEffect to get from api - placehoder api for now
   useEffect(() => {
     const fetchData = async () => {
+      // this will switch over to whatever's coming from mysql database
       const result = await axios("http://localhost:5000/smallwins");
+      // once we get those results back, I can use and manipulate them throughout my code
       console.log(result.data);
       setFakePosts(result.data);
     };
@@ -37,6 +39,11 @@ function Today() {
   // note to self - moved this to here from app.js
   const [inputText, setInputText] = useState("");
   //   for my array of objects, which will list out the list of wins for today
+  // THE BREAKDOWN:
+  // todayswins = variable to read the current state
+  // setTodaysWins = function that will be called to write the new state
+  // useState([whatever goes in here]) = whatever is being passed in to the useState is defining the initial state. 
+  // so this whole thing is initialzing state with useState, but defining a variable to hold the state, as well as defining a function that will be called whenever we need to change the state of this thing
   const [todayswins, setTodaysWins] = useState([]);
 
 
