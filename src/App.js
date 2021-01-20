@@ -9,7 +9,7 @@ import Nav from "./components/nav";
 import Home from "./pages/home";
 import Past from "./pages/past";
 import Today from "./pages/today";
-// import Getstarted from './pages/getStarted';
+import GetStarted from "./pages/GetStarted";
 // import Landing from './pages/landing';
 
 
@@ -29,6 +29,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/Past" component={Past} />
           <Route exact path="/Today" component={Today} />
+          <Route exact path="/GetStarted" component={GetStarted} />
         </Switch>
         <TestBackend />
         {/* <Home /> */}
