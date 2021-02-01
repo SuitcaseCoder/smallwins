@@ -6,12 +6,16 @@ import SignUp from '../components/SignUp';
 
 export class GetStarted extends Component {
     render() {
+        // if(this.state.loginStatus){
         return (
             <div>
                 <SignUp />
                 <Login />
             </div>
         )
+    // } else {
+
+    // }
     }
 }
 

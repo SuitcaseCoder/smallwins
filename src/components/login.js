@@ -1,4 +1,9 @@
-import React, { Component, useState } from 'react'
+import React, { Component, useState, useEffect(() => {
+    effect
+    return () => {
+        cleanup
+    }
+}, [input]) } from 'react'
 import axios from 'axios';
 import '../css/getStarted.css';
 
@@ -18,7 +23,7 @@ const Login = () => {
         const login = () => {
             axios.post('/login', {
                 username: userLogin,
-                password: passLogin
+                password: passLogin,
             }).then((response) => {
 
                 if(response.data.message){
@@ -29,6 +34,14 @@ const Login = () => {
                 
             })
         }
+
+        useEffect(() => {
+            axios.get("/login").then((response) => {
+                if(response.data.loggedIn ==  true)
+                setLoginStatus(response.data.user[0].username)
+            })
+        }, [])
+
 
         return (
             <div>

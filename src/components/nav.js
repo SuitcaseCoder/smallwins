@@ -21,7 +21,7 @@ const Nav = () => {
           <li>Today</li>
         </Link>
 
-        <Link exact to="/Today">
+        <Link exact to="/GetStarted">
           <li>Logout / Login</li>
         </Link>
       </ul>

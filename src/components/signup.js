@@ -20,6 +20,10 @@ const SignUp = () => {
     // password registration
     const [passReg, setPassReg] = useState('');
 
+
+    axios.defaults.withCredentials = true;
+
+
     const register = () => {
         axios.post('/register', {
             firstName: firstNameReg,
@@ -31,8 +35,6 @@ const SignUp = () => {
             console.log(response)()
         })
     }
-
-
 
         return (
             <div>
