@@ -1,11 +1,14 @@
-import React, { Component, useState, useEffect(() => {
-    effect
-    return () => {
-        cleanup
-    }
-}, [input]) } from 'react'
+// import { React, useState, useEffect(() => {
+//     effect
+//     return () => {
+//         cleanup
+//     }
+// }, [input]) } from 'react';
+
+import {React, Component, useState, useEffect} from 'react';
 import axios from 'axios';
 import '../css/getStarted.css';
+
 
 
 const Login = () => {
@@ -37,7 +40,7 @@ const Login = () => {
 
         useEffect(() => {
             axios.get("/login").then((response) => {
-                if(response.data.loggedIn ==  true)
+                if(response.data.loggedIn ===  true)
                 setLoginStatus(response.data.user[0].username)
             })
         }, [])

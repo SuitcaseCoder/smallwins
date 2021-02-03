@@ -1,5 +1,6 @@
 import React, { Component, useState }  from 'react'
 import axios from "axios";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import '../css/getStarted.css';
 
 
@@ -39,7 +40,7 @@ const SignUp = () => {
         return (
             <div>
                 <div className="registration">
-                    <h2>Register</h2>
+                    <h2>Register to Start Tracking your Small Wins</h2>
                     <div>
                     <input 
                         type="text" 
@@ -61,7 +62,7 @@ const SignUp = () => {
                     </div>
                     <button onClick={register}>Sign Up</button>
                 </div>
-                <p>already have an account? log in</p>
+                <p>already have an account? <Link exact to="/Login">Log In Here</Link></p>
             </div>
         )
     
