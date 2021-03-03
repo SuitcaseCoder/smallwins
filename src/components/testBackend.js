@@ -21,12 +21,26 @@ export default class testBackend extends Component{
           console.log(error);
        });
     }
+
+    handlePostReq = () => {
+        const thing = { title: 'thing title' }; 
+        axios.post('/addwin1', thing)
+        .then(function (response) {
+          console.log(response.data);
+          this.setState({thing: "thing one"})
+        })
+       .catch(function (error) {
+          console.log('an err occurred', error);
+       });
+    }
+
     
     render() {
         return (
             <div>
                 <h2>TESTING BACKEND</h2>
                 <button onClick={this.handleButtonClick}>get post</button>
+                <button  onClick={this.handlePostReq}>post a post</button>
                 <ul>
                 {this.state.posts.map(item => (
                     <li key={item}>

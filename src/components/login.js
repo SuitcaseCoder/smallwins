@@ -28,7 +28,7 @@ const Login = () => {
                 username: userLogin,
                 password: passLogin,
             }).then((response) => {
-
+                // console.log(`response after sending post request to login (react): ${response}`);
                 if(response.data.message){
                     setLoginStatus(response.data.message)
                 } else {
@@ -40,6 +40,7 @@ const Login = () => {
 
         useEffect(() => {
             axios.get("/login").then((response) => {
+                console.log(response);
                 if(response.data.loggedIn ===  true)
                 setLoginStatus(response.data.user[0].username)
             })

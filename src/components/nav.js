@@ -24,6 +24,10 @@ const Nav = () => {
         <Link exact to="/GetStarted">
           <li>Logout / Login</li>
         </Link>
+
+        <Link exact to="/logout">
+          <li>Logout</li>
+        </Link>
       </ul>
     </nav>
   );

@@ -15,25 +15,26 @@ function Today() {
   useEffect(() => {
     const fetchData = async () => {
       // this will switch over to whatever's coming from mysql database
-      const result = await axios("http://localhost:5000/smallwins");
+      // const result = await axios("http://localhost:5000/");
+      const result = await axios("http://localhost:5000/createwinstable");
       // once we get those results back, I can use and manipulate them throughout my code
-      console.log(result.data);
+      console.log('results from fetchData: *** ' + result.data);
       setFakePosts(result.data);
     };
     fetchData();
   }, []);
 
   // USE EFFECT FOR POST AXIOS CALL
-  // useEffect(() => {
-  //   // POST request using axios inside useEffect React hook
-  //   const todayswins = { postTitle: "React Hooks POST Request Example" };
-  //   axios
-  //     .post("https://jsonplaceholder.typicode.com/posts", todayswins)
-  //     // create setNewWin function to actually set data
-  //     .then((response) => setTodaysWins(response.data));
+  useEffect(() => {
+    // POST request using axios inside useEffect React hook
+    const todayswins = { postTitle: "React Hooks POST Request Example" };
+    axios
+      .post("http://localhost:5000/addwin1", todayswins)
+      // create setNewWin function to actually set data
+      .then((response) => setTodaysWins(response.data));
 
-  //   // empty dependency array means this effect will only run once (like componentDidMount in classes)
-  // }, []);
+    // empty dependency array means this effect will only run once (like componentDidMount in classes)
+  }, []);
 
 
   // note to self - moved this to here from app.js
