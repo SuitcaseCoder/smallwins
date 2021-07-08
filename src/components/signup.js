@@ -24,8 +24,8 @@ const SignUp = () => {
 
     axios.defaults.withCredentials = true;
 
-
     const register = () => {
+        console.log('register made on frontend');
         axios.post('/register', {
             firstName: firstNameReg,
             lastName: lastNameReg,
@@ -33,6 +33,7 @@ const SignUp = () => {
             email: emailReg,
             password: passReg
         }).then((response) => {
+            console.log('/register frontend in the then response');
             console.log(response)()
         })
     }

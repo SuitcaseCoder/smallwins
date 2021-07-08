@@ -15,8 +15,8 @@ function Today() {
   useEffect(() => {
     const fetchData = async () => {
       // this will switch over to whatever's coming from mysql database
-      // const result = await axios("http://localhost:5000/");
-      const result = await axios("http://localhost:5000/createwinstable");
+      const result = await axios("http://localhost:5000/");
+      // const result = await axios("http://localhost:5000/createwinstable");
       // once we get those results back, I can use and manipulate them throughout my code
       console.log('results from fetchData: *** ' + result.data);
       setFakePosts(result.data);
