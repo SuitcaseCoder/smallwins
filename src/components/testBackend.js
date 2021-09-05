@@ -11,9 +11,12 @@ export default class testBackend extends Component{
 
     handleButtonClick = () => {
         let list = this;
-        axios.get('/smallwins')
+        axios.get('/')
+        // .then(response => response.json())
         .then(function (response) {
-          console.log(response.data);
+            console.log('response came back');
+            console.log(response);
+        //   console.log(response.data);
           list.setState({posts: response.data})
         //   console.log(this.posts});
         })

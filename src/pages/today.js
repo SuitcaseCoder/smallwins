@@ -10,6 +10,7 @@ import Celebrate from "../components/celebrate";
 function Today() {
   // trying to 'get' from api - placeholder api for now getting fake posts
   const [fakeposts, setFakePosts] = useState({ postTitle: " " });
+  // HOLD ON THIS BEFORE TRYING ANYTHING // const [newWins, setNewWins] = useState({})
 
   // useEffect to get from api - placehoder api for now
   useEffect(() => {
@@ -19,6 +20,7 @@ function Today() {
       // const result = await axios("http://localhost:5000/createwinstable");
       // once we get those results back, I can use and manipulate them throughout my code
       console.log('results from fetchData: *** ' + result.data);
+      console.log(result.data);
       setFakePosts(result.data);
     };
     fetchData();
@@ -27,11 +29,18 @@ function Today() {
   // USE EFFECT FOR POST AXIOS CALL
   useEffect(() => {
     // POST request using axios inside useEffect React hook
-    const todayswins = { postTitle: "React Hooks POST Request Example" };
+    // const todayswins = [{ win_Title: "Second" }, {win_Title:"hello",win_Body:"world"}];
+    // const todayswins = ;
+    console.log('*** TODAYS WINS in today.js before post ***')
+    console.log(todayswins);
     axios
       .post("http://localhost:5000/addwin1", todayswins)
       // create setNewWin function to actually set data
-      .then((response) => setTodaysWins(response.data));
+      .then((response) => {
+        console.log(response.data);
+        setTodaysWins(response.data)
+      });
+      
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);

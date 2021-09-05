@@ -17,7 +17,9 @@ const Winform = ({
     e.preventDefault();
     // we have state
     // when I click on submit new input, then this function gets triggered, within this function I am triggering setTodaysWins, which is accepting all the existing 'todayswins' that's being spread in an array (also passed in from props), the second thing being passed in is the text that's being assigned to text from the user. setTodaysWins is being passed down from today
-    setTodaysWins([...todayswins, { text: inputText, id: uuid() }]);
+    // setTodaysWins([...todayswins, { id: uuid(),win_title: inputText ,win_body: "win body" }]);
+    setTodaysWins([...todayswins, { id: uuid(), win_title: inputText, win_body: "win body" }]);
+
     // setInputText('') refreshes so that the input field empties out after something's been submitted
     setInputText("");
     // changing the state of setCelebrate to true to rerender and display the congrats component

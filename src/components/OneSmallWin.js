@@ -1,7 +1,7 @@
 import React from "react";
 
 // todo is same as onesmallwin ... or win from todaywins.js
-const OneSmallWin = ({ text, win, todayswins, setTodaysWins }) => {
+const OneSmallWin = ({ win_title, win, todayswins, setTodaysWins }) => {
   // events
   const handleDelete = () => {
     // console.log("win in onesmallwin", win);
@@ -11,7 +11,7 @@ const OneSmallWin = ({ text, win, todayswins, setTodaysWins }) => {
 
   return (
     <div className="onesmallwin">
-      <li className="onesmallwin-item">{text}</li>
+      <li className="onesmallwin-item">{win_title}</li>
       <button onClick={handleDelete} className="trash-btn">
         <i className="fas fa-trash"></i>
       </button>
