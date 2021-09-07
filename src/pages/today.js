@@ -7,10 +7,13 @@ import TodayWins from "../components/TodayWins";
 import Celebrate from "../components/celebrate";
 
 // ENTIRE 'TODAY' (basically homepage) COMPONENT
+// this function runs when page loads/refreshes
 function Today() {
+  console.log("---loads when page refreshes/loads---")
   // trying to 'get' from api - placeholder api for now getting fake posts
-  const [fakeposts, setFakePosts] = useState({ postTitle: " " });
-  // HOLD ON THIS BEFORE TRYING ANYTHING // const [newWins, setNewWins] = useState({})
+  // const [fakeposts, setFakePosts] = useState({ postTitle: " " });
+  // HOLD ON THIS BEFORE TRYING ANYTHING 
+  const [newWins, setNewWins] = useState({})
 
   // useEffect to get from api - placehoder api for now
   useEffect(() => {
@@ -19,9 +22,10 @@ function Today() {
       const result = await axios("http://localhost:5000/");
       // const result = await axios("http://localhost:5000/createwinstable");
       // once we get those results back, I can use and manipulate them throughout my code
-      console.log('results from fetchData: *** ' + result.data);
-      console.log(result.data);
-      setFakePosts(result.data);
+      console.log(' ---- results from GET request at 5000/ ----- `' + result.data);
+      // setFakePosts(result.data);
+      //9/6/21 : wait on this: 
+      setNewWins(result.data);
     };
     fetchData();
   }, []);
@@ -31,12 +35,16 @@ function Today() {
     // POST request using axios inside useEffect React hook
     // const todayswins = [{ win_Title: "Second" }, {win_Title:"hello",win_Body:"world"}];
     // const todayswins = ;
-    console.log('*** TODAYS WINS in today.js before post ***')
-    console.log(todayswins);
+    // console.log('*** TODAYS WINS in today.js before post ***')
+    // console.log(todayswins);
+    // console.log('<<< NEW WINS >>>')
+    // console.log(newWins);
     axios
-      .post("http://localhost:5000/addwin1", todayswins)
+      // .post("http://localhost:5000/addwin1", todayswins)
+      .post("http://localhost:5000/addwin1", newWins)
       // create setNewWin function to actually set data
       .then((response) => {
+        console.log("---- POST request at 5000/addwin1 ----")
         console.log(response.data);
         setTodaysWins(response.data)
       });
@@ -55,6 +63,8 @@ function Today() {
   // useState([whatever goes in here]) = whatever is being passed in to the useState is defining the initial state. 
   // so this whole thing is initialzing state with useState, but defining a variable to hold the state, as well as defining a function that will be called whenever we need to change the state of this thing
   const [todayswins, setTodaysWins] = useState([]);
+  // const [newWins, setNewWins] = useState([]);
+
 
 
   // GUIDE: in the array, the first element is declaring a brand new state variable, the second item in the array is a function that lets us update that first state (similar to this.setState in that we can call it from an event handler),  only one thing (argument) can be passed into the useState() function, which will be the inital value of the state being created. so in this case our 'celebrate' state that was just created is going to start of with a value of false. So the array part is actually array destructuring happening
@@ -74,8 +84,10 @@ function Today() {
       <TodayWins
         todayswins={todayswins}
         setTodaysWins={setTodaysWins}
-        fakeposts={fakeposts}
-        setFakePosts={setFakePosts}
+        // fakeposts={fakeposts}
+        newWins={newWins}
+        // setFakePosts={setFakePosts}
+        setNewWins = {setNewWins}
       />
       {celebrate ? <Celebrate /> : null}
     </div>
