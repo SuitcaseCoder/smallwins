@@ -1,12 +1,12 @@
 import React from "react";
 
 // todo is same as onesmallwin ... or win from todaywins.js
-const OneSmallWin = ({ win_title, win, todayswins, setTodaysWins }) => {
+const OneSmallWin = ({ win_title, win, todayswins, setTodaysWins, newWins, setNewWins }) => {
   // events
   const handleDelete = () => {
-    // console.log("win in onesmallwin", win);
+    // setTodaysWins(todayswins.filter((el) => el.id !== win.id));
+    setNewWins(newWins.filter((el) => el.id !== win.id));
 
-    setTodaysWins(todayswins.filter((el) => el.id !== win.id));
   };
 
   return (

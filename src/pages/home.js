@@ -7,13 +7,14 @@ function Home(props) {
   return (
     <div>
       {/* turn into a component */}
-      <h3>Welcome back --username-- </h3> 
+      <h3>Welcome back! {/*user*/} </h3> 
       {/* figure out how to get the state.username and days tracking into here */}
       {/* <h3>{this.props}</h3> */}
-      <h4>You've been tracking your wins for -- x -- days</h4>
+      <h4>You've been tracking your wins for {/*props.user.dayssince*/} days</h4>
       <Today />
       {/* <Past /> */}
     </div>
+    
     //   {/* // if today show today
     // // if past show past
     // // maybe use router for this */}

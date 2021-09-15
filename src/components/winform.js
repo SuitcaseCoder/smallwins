@@ -1,11 +1,14 @@
 import React from "react";
 import uuid from "react-uuid";
+import axios from 'axios'
+
 
 const Winform = ({
   inputText,
   setInputText,
   // todayswins,
   newWins,
+  setNewWins,
   setTodaysWins,
   setCelebrate,
 }) => {
@@ -16,14 +19,28 @@ const Winform = ({
 
   const handleSubmitToday = (e) => {
     e.preventDefault();
+    console.log('newWins in handleSubmit: ')
+    // newWins here is coming direct from the db as an arr ... i think
+    console.log(newWins);
+    // -------------------------
+
+    axios
+    // .post("http://localhost:5000/addwin1", todayswins)
+    .post("http://localhost:5000/addwin1", newWins)
+    // create setNewWin function to actually set data
+    .then((response) => {
+      // setTodaysWins(response.data)
+      console.log("response in winform:")
+      console.log(response);
+      // console.log(JSON.parse(response));
+      setNewWins(response.data);
+    });
+
+    // -------------------------
     // we have state
     // when I click on submit new input, then this function gets triggered, within this function I am triggering setTodaysWins, which is accepting all the existing 'todayswins' that's being spread in an array (also passed in from props), the second thing being passed in is the text that's being assigned to text from the user. setTodaysWins is being passed down from today
     // setTodaysWins([...todayswins, { id: uuid(), win_title: inputText}]);
-    setTodaysWins([...newWins, { id: uuid(), win_title: inputText}]);
-
-    // ------------ IDK IF THIS GOES HERE
-    
-    // ------------
+    setNewWins([...newWins, { id: uuid(), win_title: inputText}]);
 
     // setInputText('') refreshes so that the input field empties out after something's been submitted
     setInputText("");

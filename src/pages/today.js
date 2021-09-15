@@ -9,22 +9,15 @@ import Celebrate from "../components/celebrate";
 // ENTIRE 'TODAY' (basically homepage) COMPONENT
 // this function runs when page loads/refreshes
 function Today() {
-  console.log("---loads when page refreshes/loads---")
-  // trying to 'get' from api - placeholder api for now getting fake posts
-  // const [fakeposts, setFakePosts] = useState({ postTitle: " " });
-  // HOLD ON THIS BEFORE TRYING ANYTHING 
-  const [newWins, setNewWins] = useState({})
 
   // useEffect to get from api - placehoder api for now
   useEffect(() => {
     const fetchData = async () => {
       // this will switch over to whatever's coming from mysql database
-      const result = await axios("http://localhost:5000/");
+      const result = await axios.get("http://localhost:5000/allwins")
       // const result = await axios("http://localhost:5000/createwinstable");
       // once we get those results back, I can use and manipulate them throughout my code
-      console.log(' ---- results from GET request at 5000/ ----- `' + result.data);
-      // setFakePosts(result.data);
-      //9/6/21 : wait on this: 
+      console.log(result.data);
       setNewWins(result.data);
     };
     fetchData();
@@ -37,21 +30,21 @@ function Today() {
     // const todayswins = ;
     // console.log('*** TODAYS WINS in today.js before post ***')
     // console.log(todayswins);
-    // console.log('<<< NEW WINS >>>')
-    // console.log(newWins);
-    axios
-      // .post("http://localhost:5000/addwin1", todayswins)
-      .post("http://localhost:5000/addwin1", newWins)
-      // create setNewWin function to actually set data
-      .then((response) => {
-        console.log("---- POST request at 5000/addwin1 ----")
-        console.log(response.data);
-        setTodaysWins(response.data)
-      });
+    console.log('<<< NEW WINS >>>')
+    console.log(newWins);
+    // axios
+    //   // .post("http://localhost:5000/addwin1", todayswins)
+    //   .post("http://localhost:5000/addwin1", newWins)
+    //   // create setNewWin function to actually set data
+    //   .then((response) => {
+    //     // setTodaysWins(response.data)
+    //     setNewWins(response.data);
+    //   });
       
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
-  }, []);
+    // if I were to remove the empty array I run into a loop
+  },[]);
 
 
   // note to self - moved this to here from app.js
@@ -62,8 +55,8 @@ function Today() {
   // setTodaysWins = function that will be called to write the new state
   // useState([whatever goes in here]) = whatever is being passed in to the useState is defining the initial state. 
   // so this whole thing is initialzing state with useState, but defining a variable to hold the state, as well as defining a function that will be called whenever we need to change the state of this thing
-  const [todayswins, setTodaysWins] = useState([]);
-  // const [newWins, setNewWins] = useState([]);
+  // const [todayswins, setTodaysWins] = useState([]);
+  const [newWins, setNewWins] = useState([]);
 
 
 
@@ -75,15 +68,17 @@ function Today() {
       {/* todayswins={todayswins} can just the same be newlyAddedSmallWin={todayswins} */}
       <Winform
         inputText={inputText}
-        todayswins={todayswins}
-        setTodaysWins={setTodaysWins}
+        // todayswins={todayswins}
+        newWins={newWins}
+        // setTodaysWins={setTodaysWins}
         setInputText={setInputText}
         // setting celebrate to true after submit but passing in the function down to the form when submit is clicked
         setCelebrate={setCelebrate}
+        setNewWins={setNewWins}
       />
       <TodayWins
-        todayswins={todayswins}
-        setTodaysWins={setTodaysWins}
+        // todayswins={todayswins}
+        // setTodaysWins={setTodaysWins}
         // fakeposts={fakeposts}
         newWins={newWins}
         // setFakePosts={setFakePosts}

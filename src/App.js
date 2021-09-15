@@ -33,8 +33,7 @@ function App() {
           <Route exact path="/GetStarted" component={GetStarted} />
           <Route exact path="/Login" component={Login} />
         </Switch>
-        <TestBackend />
-        {/* <Home /> */}
+        {/* <TestBackend /> */}
       </div>
     </Router>
   );

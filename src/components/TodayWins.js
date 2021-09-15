@@ -1,35 +1,23 @@
 import React from "react";
 import OneSmallWin from "./OneSmallWin";
 
-const TodayWins = ({ todayswins, setTodaysWins, newWins }) => {
-  console.log('todayswins frontend: (which I believe is coming from the backend)');
-  console.log(todayswins);
-  return (
-    // <div className="today-wins-container">
-    //   {/* example from: https://www.robinwieruch.de/react-hooks-fetch-data */}
-    //   <ul className="todays-wins">
-    //      {todayswins.map((win) => (
-    //       <OneSmallWin
-    //         win={win}
-    //         todayswins={todayswins}
-    //         setTodaysWins={setTodaysWins}
-    //         key={win.id}
-    //         win_title={win.win_title}
-    //       />
-    //     ))} 
-    //   </ul>
-    // </div>
+const TodayWins = ({ todayswins, setTodaysWins, newWins, setNewWins}) => {
+  // console.log('newWins in todaywins');
+  // console.log(newWins);
 
+  return (
     <div className="today-wins-container">
     {/* example from: https://www.robinwieruch.de/react-hooks-fetch-data */}
     <ul className="todays-wins">
         <OneSmallWin
-          win={todayswins}
+          win={newWins}
           todayswins={todayswins}
           setTodaysWins={setTodaysWins}
-          key={todayswins.id}
-          win_title={todayswins.win_title}
+          key={newWins.id}
+          win_title={newWins.win_title}
           newWins={newWins}
+          setNewWins={setNewWins}
+
         />
     </ul>
   </div>
