@@ -28,18 +28,19 @@ function Today() {
     // POST request using axios inside useEffect React hook
     // const todayswins = [{ win_Title: "Second" }, {win_Title:"hello",win_Body:"world"}];
     // const todayswins = ;
-    // console.log('*** TODAYS WINS in today.js before post ***')
-    // console.log(todayswins);
     console.log('<<< NEW WINS >>>')
     console.log(newWins);
-    // axios
-    //   // .post("http://localhost:5000/addwin1", todayswins)
-    //   .post("http://localhost:5000/addwin1", newWins)
-    //   // create setNewWin function to actually set data
-    //   .then((response) => {
-    //     // setTodaysWins(response.data)
-    //     setNewWins(response.data);
-    //   });
+    const postData = async () => {
+    axios
+      // .post("http://localhost:5000/addwin1", todayswins)
+      .post("http://localhost:5000/addwin1", newWins)
+      // create setNewWin function to actually set data
+      .then((response) => {
+        // setTodaysWins(response.data)
+        setNewWins(response.data);
+      });
+      
+    }
       
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)

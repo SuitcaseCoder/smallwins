@@ -14,7 +14,7 @@ const TodayWins = ({ todayswins, setTodaysWins, newWins, setNewWins}) => {
           todayswins={todayswins}
           setTodaysWins={setTodaysWins}
           key={newWins.id}
-          win_title={newWins.win_title}
+          // win_title={newWins}
           newWins={newWins}
           setNewWins={setNewWins}
 
