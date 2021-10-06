@@ -29,11 +29,10 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/Past" component={Past} />
-          <Route exact path="/Today" component={Today} />
-          <Route exact path="/GetStarted" component={GetStarted} />
+          {/* <Route exact path="/Today" component={Today} /> */}
+          {/* <Route exact path="/GetStarted" component={GetStarted} /> */}
           <Route exact path="/Login" component={Login} />
         </Switch>
-        {/* <TestBackend /> */}
       </div>
     </Router>
   );
