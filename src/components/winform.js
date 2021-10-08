@@ -24,6 +24,7 @@ const Winform = ({
 
   const handleSubmitToday = (e) => {
     e.preventDefault();
+
     axios
     .post("http://localhost:5000/addwin1", addedWin )
     .then((response) => {
@@ -33,10 +34,11 @@ const Winform = ({
       axios
         .get("http://localhost:5000/allwins")
         .then(res => {
+          console.log(" RES . DATA PASSED INTO SET NEW WINS ")
+          console.log(res.data);
           setNewWins(res.data);
-          console.log("newWins after setNewWins: ");
-          console.log(newWins);
         })
+
 
       // setNewWins(response.data);
     });

@@ -50,11 +50,10 @@ function Today() {
         setAddedWin={setAddedWin}
       />
       <OneSmallWin
-        // win={newWins}
         // key={newWins.id}
         // // win_title={newWins}
-        // newWins={newWins}
-        // setNewWins={setNewWins}
+        newWins={newWins}
+        setNewWins={setNewWins}
       />
       {celebrate ? <Celebrate /> : null}
     </div>

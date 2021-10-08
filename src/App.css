@@ -70,15 +70,28 @@ form button:hover {
 }
 
 .onesmallwin {
-  margin: 0.5rem;
-  background: white;
-  font-size: 1.5rem;
-  color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: all 1s ease;
+  flex-direction: column;
+  width: 60%;
+  background-color: beige;
+  margin: auto;
+
 }
+.win-li {
+  margin: 0.5rem;
+  background: white;
+  font-size: 1.5rem;
+  color: black;
+  padding: 0rem 0.5rem;
+  border: 1px solid rgb(179, 135, 120);
+  list-style-type: none;
+  width: 96%;
+  border-radius: 8px;
+}
+
 .filter-todo {
   padding: 1rem;
 }
@@ -87,12 +100,13 @@ form button:hover {
 }
 
 .trash-btn {
-  background: #DB5A42;
-  color: white;
+  /* background: #e6573e; */
+  color: rgb(241, 121, 90);
   border: none;
-  padding: 1rem;
+  /* padding: 0.5rem; */
   cursor: pointer;
   font-size: 1rem;
+  text-align: right;
 }
 
 .onesmallwin-item {
