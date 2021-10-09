@@ -24,6 +24,14 @@ const SignUp = () => {
 
     axios.defaults.withCredentials = true;
 
+    const getStarted = () => {
+        console.log('getStarted fn');
+        axios.get('/createdb', {
+        }).then(res => {
+console.log(res.status);
+        })
+    }
+
     const register = () => {
         console.log('register made on frontend');
         axios.post('/register', {
@@ -40,6 +48,7 @@ const SignUp = () => {
 
         return (
             <div>
+                <button onClick={getStarted}>click to create db / table</button>
                 <div className="registration">
                     <h2>Register to Start Tracking your Small Wins</h2>
                     <div>

@@ -3,15 +3,12 @@ import axios from 'axios'
 
 
 // todo is same as onesmallwin ... or win from todaywins.js
-const OneSmallWin = ({ /*win_title win,*/ newWins, setNewWins }) => {
+const OneSmallWin = ({ newWins, setNewWins }) => {
  
-  // events
+  // DELETE 
   const handleDelete = (id) => {
-    // setNewWins(newWins.filter((el) => el.id !== id));
-    // console.log(newWins);
-
     axios
-      .delete(`/deletesmallwin/:id=${id}`)
+      .delete(`/deletesmallwin/${id}`)
       .then(() => {
         console.log("---DELETE BUTTON----")
         console.log(id);

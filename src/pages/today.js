@@ -8,12 +8,6 @@ import OneSmallWin from "../components/OneSmallWin";
 
 // this function runs when page loads/refreshes
 function Today() {
-
-    // THE BREAKDOWN:
-  // newWins = variable to read the current state
-  // setNewWins = function that will be called to write the new state
-  // useState([whatever goes in here]) = whatever is being passed in to the useState is defining the initial state. 
-  // so this whole thing is initialzing state with useState, but defining a variable to hold the state, as well as defining a function that will be called whenever we need to change the state of this thing
   const [newWins, setNewWins] = useState([]);
 
   // useEffect to get from api 
@@ -22,7 +16,7 @@ function Today() {
       const result = await axios.get("http://localhost:5000/allwins")
       // const result = await axios("http://localhost:5000/createwinstable");
       // result.data is an array of objects where each object is a row from the db (wins table)
-      // setNewWins(result.data);
+      setNewWins(result.data);
     };
     fetchData();
   }, []);
@@ -50,8 +44,6 @@ function Today() {
         setAddedWin={setAddedWin}
       />
       <OneSmallWin
-        // key={newWins.id}
-        // // win_title={newWins}
         newWins={newWins}
         setNewWins={setNewWins}
       />

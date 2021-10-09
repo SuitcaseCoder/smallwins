@@ -2,6 +2,7 @@ import React from "react";
 
 import Today from "./today";
 // import Past from "./past";
+import Footer from "../components/Footer";
 
 function Home(props) {
   return (
@@ -13,6 +14,7 @@ function Home(props) {
       <h4>You've been tracking your wins for {/*props.user.dayssince*/} days</h4>
       <Today />
       {/* <Past /> */}
+      <Footer />
     </div>
     
     //   {/* // if today show today
