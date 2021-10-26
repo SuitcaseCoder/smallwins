@@ -34,8 +34,6 @@ const Winform = ({
       axios
         .get("http://localhost:5000/allwins")
         .then(res => {
-          console.log(" RES . DATA PASSED INTO SET NEW WINS ")
-          console.log(res.data);
           setNewWins(res.data);
         })
 

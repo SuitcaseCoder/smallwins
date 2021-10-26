@@ -32,17 +32,18 @@ console.log(res.status);
         })
     }
 
+    // THIS WORKS  ✅
+    // if registered, re-route to home
     const register = () => {
-        console.log('register made on frontend');
         axios.post('/register', {
-            firstName: firstNameReg,
-            lastName: lastNameReg,
+            first_name: firstNameReg,
+            last_name: lastNameReg,
             username: userReg,
             email: emailReg,
             password: passReg
         }).then((response) => {
-            console.log('/register frontend in the then response');
-            console.log(response)()
+            console.log('user registered');
+            console.log(response);
         })
     }
 
