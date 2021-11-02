@@ -7,7 +7,9 @@ import LoggedOut from '../components/LoggedOut';
 
 export class GetStarted extends Component {
     render() {
-        // if(!this.state.loginStatus){
+        console.log(this.state);
+        // console.log(this.state);
+        if(!this.state.loginStatus){
         return (
             <div>
                 <SignUp />
@@ -21,6 +23,7 @@ export class GetStarted extends Component {
             // )
     // }
     }
+}
 }
 
 export default GetStarted;
