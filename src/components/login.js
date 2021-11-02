@@ -24,11 +24,13 @@ const Login = () => {
 
         // to handle onclick for login
         const login = () => {
+            console.log('login clicked');
             axios.post('/login', {
                 username: userLogin,
                 password: passLogin,
             }).then((response) => {
-                // console.log(`response after sending post request to login (react): ${response}`);
+                console.log(`response after sending post request to login (react):`);
+                console.log(response);
                 if(response.data.message){
                     setLoginStatus(response.data.message)
                 } else {
