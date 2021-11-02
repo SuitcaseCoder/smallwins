@@ -7,6 +7,7 @@ const OneSmallWin = ({ newWins, setNewWins }) => {
  
   // DELETE 
   const handleDelete = (id) => {
+    console.log(id);
     axios
       .delete(`/deletesmallwin/${id}`)
       .then(() => {
@@ -20,9 +21,10 @@ const OneSmallWin = ({ newWins, setNewWins }) => {
   return (
     <div className="onesmallwin">
       {newWins.map(win => {
+        console.log(win);
         return <li className="win-li" key={win.id}>
           {win.win_title}
-          <button onClick={() => handleDelete(win.id)} className="trash-btn">
+          <button onClick={() => handleDelete(win.win_id)} className="trash-btn">
           <i className="fas fa-trash"></i>
           </button>
               </li>
