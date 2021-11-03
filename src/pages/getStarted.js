@@ -7,7 +7,6 @@ import LoggedOut from '../components/LoggedOut';
 
 export class GetStarted extends Component {
     render() {
-        console.log(this.state);
         // console.log(this.state);
         if(!this.state.loginStatus){
         return (

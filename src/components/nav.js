@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 // import Home from "../pages/home";
 // import Today from "../pages/today";
@@ -21,8 +21,9 @@ const Nav = () => {
           <li>Today</li>
         </Link>
 
-        <Link exact to="/GetStarted">
-          <li>Logout / Login</li>
+{/* add logic to toggle these */}
+        <Link exact to="/login">
+          <li>Login</li>
         </Link>
 
         <Link exact to="/logout">

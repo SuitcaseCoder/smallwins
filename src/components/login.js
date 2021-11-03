@@ -1,17 +1,20 @@
-// import { React, useState, useEffect(() => {
-//     effect
-//     return () => {
-//         cleanup
-//     }
-// }, [input]) } from 'react';
-
-import {React, Component, useState, useEffect} from 'react';
+import {React, useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/getStarted.css';
 
+import { Redirect } from "react-router-dom";
 
 
-const Login = () => {
+
+
+const Login = ({
+    currUser,
+    isLoggedIn, 
+    setIsLoggedIn, 
+    setCurrUser, 
+}) => {
+    console.log("LOGIN STATUS LOGIN PAGE")
+    console.log(isLoggedIn);
 
         // username check
         const [userLogin, setUserLogin] = useState('');
@@ -19,70 +22,103 @@ const Login = () => {
         // password login check
         const [passLogin, setPassLogin] = useState('');
 
-        // add a login state to our state
-        const [loginStatus, setLoginStatus] = useState('');
+        const [loginStatus, setLoginStatus] = useState(false);
 
-        // add a login message for UI
         const [loginMsg, setLoginMsg] = useState('');
 
         // to handle onclick for login
         const login = () => {
-            console.log('login clicked');
+
             axios.post('/login', {
                 username: userLogin,
                 password: passLogin,
             }).then((response) => {
-                console.log(`response after sending post request to login (react):`);
-                console.log(response);
                 // if there's an error with login, set loginStatus to false and mark message as a 'try again'
-                if(response.data.message){
-                    console.log(loginStatus);
-                    setLoginStatus(false);
+                if(!response.data.isLoggedIn){
+                    // props.setIsLoggedIn(response.data.isLoggedIn)
+                    setLoginStatus(response.data.isLoggedIn);
                     setLoginMsg(response.data.message);
                 } 
                 // if there's no error with login, set login status to true and message with user's first name
                 else {
-                    console.log(response.data[0].first_name);
-                    setLoginStatus(true);
-                    setLoginMsg(response.data[0].first_name);
+                    // props.setIsLoggedIn(response.data.isLoggedIn);
+                    setLoginStatus(response.data.isLoggedIn);
+                    setCurrUser(response.data.result[0]);
+                    setLoginMsg("you're logged in")
+
                 }
                 
             })
+        };
+
+        const handleUserChange = (e) => {
+            setUserLogin(e.target.value);
         }
 
-        useEffect(() => {
-            axios.get("/login").then((response) => {
-                console.log(response);
-                if(response.data.loggedIn ===  true){
-                    console.log('user logged in')
-                setLoginStatus(true);
-                setLoginMsg(response.data.user[0].first_name)
-                console.log(loginStatus);
-                console.log(loginMsg)
-                } else {
-                    console.log('you are not logged in');
-                    setLoginStatus(false);
-                    setLoginMsg(response.data.message);
-                }
-            })
-        }, [])
+        const handlePassChange = (e) => {
+            setPassLogin(e.target.value);
+        }
+    
+        // // what about using useEffect to cleanup after username and pass are collected?
+        useEffect(()=>{
+            setIsLoggedIn(loginStatus);
+        })
 
+        // useEffect(() => {
+        //     axios.get("/login").then((response) => {
+        //         console.log(typeof response.data.isLoggedIn);
+        //         console.log(typeof props.isLoggedIn);
+        //         if(!response.data.isLoggedIn){
+        //             console.log('SHOULD BE FALSE')
+        //             console.log('PROPS.isLoggedIn <-----> response.data.isLoggedIn');
+        //             console.log(props.isLoggedIn + " " + response.data.isLoggedIn);
+        //             props.setIsLoggedIn(response.setIsLoggedIn)
+        //             console.log("should be FALSE: " + props.isLoggedIn);
+        //         } else {
+        //             console.log('SHOULD BE TRUE')
+        //             console.log('PROPS.isLoggedIn <-----> response.data.isLoggedIn');
+        //             console.log(props.isLoggedIn + " " + response.data.isLoggedIn);
+        //             props.setIsLoggedIn(response.setIsLoggedIn)
+        //             console.log("should be TRUE: " + props.isLoggedIn);
+        //         }
 
+        //         // if(!response.data.message){
+        //         if(response.data.loggedIn ===  true){
+        //         //     console.log(response.data.user);
+        //         props.setIsLoggedIn(response.data.loggedIn);
+        //         props.setCurrUser(response.data.user);
+        //         console.log(props.isLoggedIn);
+        //         // props.setLoginStatus(true);
+        //         // props.setLoginMsg(response.data.user[0].first_name)
+        //         } else {
+        //             props.setIsLoggedIn(!response.data.loggedIn);
+        //             props.setCurrUser(!response.data.user);
+        //             console.log(props.isLoggedIn);
+        //             // props.setLoginStatus(false);
+        //             // props.setLoginMsg(response.data.message);
+        //         }
+        //     })
+        // });
+
+// console.log(props.isLoggedIn);
+    // if(!props.isLoggedIn){
         return (
             <div>
                 <div className="login">
                     <h2>Login</h2>
                     <div>
-                    <input type="text" placeholder="email/username" onChange={(e) => {setUserLogin(e.target.value)}}/>
+                    <input type="text" placeholder="email/username" onChange={handleUserChange}/>
                     </div>
                     <div>
-                    <input type="password" placeholder="password" onChange={(e) => {setPassLogin(e.target.value)}}/>
+                    <input type="password" placeholder="password" onChange={handlePassChange}/>
                     </div>
                     <button onClick={login}>log in</button>
                 </div>
                 <p>forgot password</p>
             </div>
         )
-}
+    
+    }
+
 
 export default Login

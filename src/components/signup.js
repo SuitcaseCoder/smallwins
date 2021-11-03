@@ -1,6 +1,6 @@
-import React, { Component, useState }  from 'react'
+import React, { useState }  from 'react'
 import axios from "axios";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 import '../css/getStarted.css';
 
 
@@ -28,7 +28,7 @@ const SignUp = () => {
         console.log('getStarted fn');
         axios.get('/createdb', {
         }).then(res => {
-console.log(res.status);
+        console.log(res.status);
         })
     }
 

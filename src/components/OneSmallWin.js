@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import axios from 'axios'
 
 
@@ -21,7 +21,6 @@ const OneSmallWin = ({ newWins, setNewWins }) => {
   return (
     <div className="onesmallwin">
       {newWins.map(win => {
-        console.log(win);
         return <li className="win-li" key={win.id}>
           {win.win_title}
           <button onClick={() => handleDelete(win.win_id)} className="trash-btn">

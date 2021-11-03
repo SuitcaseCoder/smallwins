@@ -5,9 +5,10 @@ import axios from "axios";
 import Winform from "../components/winform";
 import Celebrate from "../components/celebrate";
 import OneSmallWin from "../components/OneSmallWin";
+import { Redirect } from "react-router-dom";
 
 // this function runs when page loads/refreshes
-function Today() {
+function Today(props) {
   const [newWins, setNewWins] = useState([]);
 
   // useEffect to get from api 
@@ -31,6 +32,13 @@ function Today() {
   // GUIDE: in the array, the first element is declaring a brand new state variable, the second item in the array is a function that lets us update that first state (similar to this.setState in that we can call it from an event handler),  only one thing (argument) can be passed into the useState() function, which will be the inital value of the state being created. so in this case our 'celebrate' state that was just created is going to start of with a value of false. So the array part is actually array destructuring happening
   const [celebrate, setCelebrate] = useState(false);
 
+  // if(!props.loginStatus){
+  //   return (
+  //     <div>
+  //       <Redirect to="/" />
+  //     </div>
+  //   )
+  // } else {
   return (
     <div>
       <Winform
@@ -42,14 +50,18 @@ function Today() {
         setNewWins={setNewWins}
         addedWin={addedWin}
         setAddedWin={setAddedWin}
+        user_id={props.user_id}
+
       />
       <OneSmallWin
         newWins={newWins}
         setNewWins={setNewWins}
+        // user_id={props.user_id}
       />
       {celebrate ? <Celebrate /> : null}
     </div>
   );
+  
 }
 
 export default Today;

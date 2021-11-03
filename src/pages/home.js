@@ -1,26 +1,36 @@
 import React from "react";
+import { Redirect } from "react-router";
+// import { Link } from "react-router-dom";
 
 import Today from "./today";
-// import Past from "./past";
-import Footer from "../components/Footer";
+// import SignUp from "../components/SignUp";
+// import { Redirect } from "react-router-dom";
 
 function Home(props) {
+  console.log("HOME PAGE PROPS");
+  console.log(props.currUser);
+  console.log(props.isLoggedIn);
+
+  if(props.isLoggedIn){
+    return(
+      <div>
+        <h4>Home page</h4>
+        <h3>Welcome back {props.currUser.first_name}!</h3>
+        <h5> You've been tracking for X days </h5>
+        <Today user_id={props.currUser.user_id}/>
+      </div>
+    )
+  } 
+  else {
   return (
     <div>
-      {/* turn into a component */}
-      <h3>Welcome back! {/*user*/} </h3> 
-      {/* figure out how to get the state.username and days tracking into here */}
-      {/* <h3>{this.props}</h3> */}
-      <h4>You've been tracking your wins for {/*props.user.dayssince*/} days</h4>
-      <Today />
-      {/* <Past /> */}
-      <Footer />
+      <Redirect to="/" />
+      {/* <h4>home component</h4>
+      <div>{props.loginMsg}</div>
+      <p>Please try <Link to="/login">logging in</Link></p> */}
     </div>
-    
-    //   {/* // if today show today
-    // // if past show past
-    // // maybe use router for this */}
   );
+  }
 }
 
 export default Home;

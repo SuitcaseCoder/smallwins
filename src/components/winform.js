@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import uuid from "react-uuid";
 import axios from 'axios'
 
@@ -10,7 +10,8 @@ const Winform = ({
   setNewWins,
   setCelebrate,
   addedWin,
-  setAddedWin
+  setAddedWin,
+  user_id
 }) => {
 
 
@@ -18,7 +19,7 @@ const Winform = ({
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
     // deal with missing last letter later
-    setAddedWin({id: uuid(), win_title: inputText});
+    setAddedWin({id: uuid(), win_title: inputText, user_id:user_id});
   };
   // setNewWins([...newWins, { id: uuid(), win_title: inputText}]);
 
