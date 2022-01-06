@@ -7,9 +7,8 @@ import Today from "./today";
 // import { Redirect } from "react-router-dom";
 
 function Home(props) {
-  console.log("HOME PAGE PROPS");
+  console.log("HOME PAGE PROPS", props);
   console.log(props.currUser);
-  console.log(props.isLoggedIn);
 
   if(props.isLoggedIn){
     return(

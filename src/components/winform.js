@@ -26,6 +26,9 @@ const Winform = ({
   const handleSubmitToday = (e) => {
     e.preventDefault();
 
+    // addedWin.user_id exists but it's undefined
+  console.log("addedWin", addedWin);
+
     axios
     .post("http://localhost:5000/addwin1", addedWin )
     .then((response) => {

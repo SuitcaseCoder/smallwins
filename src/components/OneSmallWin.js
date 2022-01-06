@@ -21,6 +21,7 @@ const OneSmallWin = ({ newWins, setNewWins }) => {
   return (
     <div className="onesmallwin">
       {newWins.map(win => {
+        // console.log("win one small win: " , win);
         return <li className="win-li" key={win.id}>
           {win.win_title}
           <button onClick={() => handleDelete(win.win_id)} className="trash-btn">

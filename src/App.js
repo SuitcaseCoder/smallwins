@@ -22,7 +22,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [currUser, setCurrUser] = useState(null);
-
+  console.log("current user in app ", currUser);
   return (
     <Router>
       <div className="App">
@@ -32,7 +32,6 @@ function App() {
         </header>
         {/* <Landing /> */}
         <Switch>
-
             <Route 
               exact path="/small-wins"
               render={(props)=>
@@ -42,12 +41,7 @@ function App() {
                 />
               }  
             />
-          
-
-
-
           <Route exact path="/Past" component={Past} />
-
           <Route 
             exact path="/Today" 
             component={Today}
@@ -102,9 +96,6 @@ function App() {
               />
             }
           /> */}
-
-
-
         </Switch>
         <Footer />
       </div>

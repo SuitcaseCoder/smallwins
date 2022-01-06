@@ -3,7 +3,7 @@ import OneSmallWin from "./OneSmallWin";
 
 const TodayWins = ({ todayswins, setTodaysWins, newWins, setNewWins}) => {
   // console.log('newWins in todaywins');
-  // console.log(newWins);
+  console.log("newwins ", newWins);
 
   return (
     <div className="today-wins-container">
@@ -17,7 +17,6 @@ const TodayWins = ({ todayswins, setTodaysWins, newWins, setNewWins}) => {
           // win_title={newWins}
           newWins={newWins}
           setNewWins={setNewWins}
-
         />
     </ul>
   </div>

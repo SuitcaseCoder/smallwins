@@ -2,7 +2,7 @@ import {React, useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/getStarted.css';
 
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 
 
@@ -13,8 +13,7 @@ const Login = ({
     setIsLoggedIn, 
     setCurrUser, 
 }) => {
-    console.log("LOGIN STATUS LOGIN PAGE")
-    console.log(isLoggedIn);
+    console.log("isLoggedIn? ", isLoggedIn);
 
         // username check
         const [userLogin, setUserLogin] = useState('');
@@ -28,7 +27,6 @@ const Login = ({
 
         // to handle onclick for login
         const login = () => {
-
             axios.post('/login', {
                 username: userLogin,
                 password: passLogin,
@@ -107,7 +105,7 @@ const Login = ({
                 <div className="login">
                     <h2>Login</h2>
                     <div>
-                    <input type="text" placeholder="email/username" onChange={handleUserChange}/>
+                    <input type="text" placeholder="username" onChange={handleUserChange}/>
                     </div>
                     <div>
                     <input type="password" placeholder="password" onChange={handlePassChange}/>
@@ -115,6 +113,7 @@ const Login = ({
                     <button onClick={login}>log in</button>
                 </div>
                 <p>forgot password</p>
+                <p>Don't have an account yet? <Link to="/Signup">Sign Up</Link></p>
             </div>
         )
     
