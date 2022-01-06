@@ -1,6 +1,8 @@
 import React, { useState }  from 'react'
 import axios from "axios";
 import { BrowserRouter as Link } from "react-router-dom";
+import { Redirect } from "react-router";
+
 import '../css/getStarted.css';
 
 
@@ -47,6 +49,7 @@ const SignUp = () => {
         })
     }
 
+
         return (
             <div>
                 <button onClick={getStarted}>click to create db / table</button>
@@ -73,7 +76,7 @@ const SignUp = () => {
                     </div>
                     <button onClick={register}>Sign Up</button>
                 </div>
-                <p>already have an account? <Link exact to="/Login">Log In Here</Link></p>
+                <p>already have an account? <Link exact to="/Login">Log In</Link></p>
             </div>
         )
     
