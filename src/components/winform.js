@@ -17,9 +17,10 @@ const Winform = ({
 
   // here I can write js code and functions
   const inputTextHandler = (e) => {
-    setInputText(e.target.value);
+    const newVal = e.target.value;
+    setInputText(newVal);
     // deal with missing last letter later
-    setAddedWin({id: uuid(), win_title: inputText, user_id:user_id});
+    setAddedWin({id: uuid(), win_title: newVal, user_id:user_id});
   };
   // setNewWins([...newWins, { id: uuid(), win_title: inputText}]);
 

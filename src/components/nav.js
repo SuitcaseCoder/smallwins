@@ -6,6 +6,13 @@ import { BrowserRouter as Link, NavLink } from "react-router-dom";
 // import Today from "../pages/today";
 // import Past from "../pages/past";
 
+const logout = () => {
+  console.log("logged out clicked")
+  sessionStorage.removeItem("userToken");
+  sessionStorage.clear(); 
+  
+}
+
 const Nav = () => {
   return (
     <nav>
@@ -27,7 +34,7 @@ const Nav = () => {
         </NavLink>
 
         <NavLink exact to="/logout">
-          <li>Logout</li>
+          <li onClick={logout}>Logout</li>
         </NavLink>
       </ul>
     </nav>

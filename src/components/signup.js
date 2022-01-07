@@ -23,6 +23,9 @@ const SignUp = () => {
     // password registration
     const [passReg, setPassReg] = useState('');
 
+    // 
+    const [successfullyRegistered, setSuccessfullyRegistered] = useState(false);
+
 
     axios.defaults.withCredentials = true;
 
@@ -46,11 +49,16 @@ const SignUp = () => {
         }).then((response) => {
             console.log('user registered');
             console.log(response);
+            setSuccessfullyRegistered(true);
+            // redirect to home page (today)
         })
     }
 
-
-        return (
+    return successfullyRegistered 
+    ? 
+    <Redirect to="/today" />
+    : 
+         (
             <div>
                 <button onClick={getStarted}>click to create db / table</button>
                 <div className="registration">

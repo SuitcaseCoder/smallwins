@@ -13,7 +13,7 @@ const Login = ({
     setIsLoggedIn, 
     setCurrUser, 
 }) => {
-    console.log("isLoggedIn? ", isLoggedIn);
+    console.log("isLoggedIn? @ login ", isLoggedIn);
 
         // username check
         const [userLogin, setUserLogin] = useState('');
@@ -36,13 +36,18 @@ const Login = ({
                     // props.setIsLoggedIn(response.data.isLoggedIn)
                     setLoginStatus(response.data.isLoggedIn);
                     setLoginMsg(response.data.message);
+                    setIsLoggedIn(false);
+                    console.log("should be false @ login after click: ", isLoggedIn)
+
                 } 
                 // if there's no error with login, set login status to true and message with user's first name
                 else {
                     // props.setIsLoggedIn(response.data.isLoggedIn);
                     setLoginStatus(response.data.isLoggedIn);
                     setCurrUser(response.data.result[0]);
+                    setIsLoggedIn(true);
                     setLoginMsg("you're logged in")
+                    console.log("should be true @ login after click: ", isLoggedIn)
 
                 }
                 
