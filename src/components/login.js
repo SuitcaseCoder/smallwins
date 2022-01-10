@@ -37,7 +37,7 @@ const Login = ({
                     setLoginStatus(response.data.isLoggedIn);
                     setLoginMsg(response.data.message);
                     setIsLoggedIn(false);
-                    console.log("should be false @ login after click: ", isLoggedIn)
+                    console.log("should be false @ login after click: [isLoggedIn | loginStatus] ", isLoggedIn, loginStatus)
 
                 } 
                 // if there's no error with login, set login status to true and message with user's first name
@@ -47,7 +47,7 @@ const Login = ({
                     setCurrUser(response.data.result[0]);
                     setIsLoggedIn(true);
                     setLoginMsg("you're logged in")
-                    console.log("should be true @ login after click: ", isLoggedIn)
+                    console.log("should be true @ login after click: [isLoggedIn | loginStatus] ", isLoggedIn, loginStatus)
 
                 }
                 

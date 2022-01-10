@@ -10,7 +10,7 @@ function Home(props) {
   console.log("HOME PAGE PROPS", props);
   console.log(props.currUser);
 
-  if(props.isLoggedIn){
+  // if(props.isLoggedIn){
     return(
       <div>
         <h4>Home page</h4>
@@ -19,17 +19,17 @@ function Home(props) {
         <Today user_id={props.currUser.user_id}/>
       </div>
     )
-  } 
-  else {
-  return (
-    <div>
-      <Redirect to="/" />
-      {/* <h4>home component</h4>
-      <div>{props.loginMsg}</div>
-      <p>Please try <Link to="/login">logging in</Link></p> */}
-    </div>
-  );
-  }
+  // } 
+  // else {
+  // return (
+  //   <div>
+  //     <Redirect to="/" />
+  //     {/* <h4>home component</h4>
+  //     <div>{props.loginMsg}</div>
+  //     <p>Please try <Link to="/login">logging in</Link></p> */}
+  //   </div>
+  // );
+  // }
 }
 
 export default Home;
