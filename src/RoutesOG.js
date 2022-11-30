@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
 // importing other tools
@@ -49,13 +49,13 @@ export default function Routes() {
     }
 
     return (
-        <div>
+        // <div>
     <Router>
       <div className="App">
-        <Nav />
+        {/* <Nav />
         <header>
           <h1>Small Wins</h1>
-        </header>
+        </header> */}
         {/* <Landing /> */}
         <Switch>
         <AuthenticatedRoute path="/small-wins">
@@ -127,6 +127,6 @@ export default function Routes() {
       </div>
     </Router>
 
-        </div>
+        // </div>
     )
 }

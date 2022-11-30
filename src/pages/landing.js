@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Home from "./home"
+import Home from "./Home"
 // import { useState } from 'react/cjs/react.development'
 import { Redirect } from "react-router-dom";
 
