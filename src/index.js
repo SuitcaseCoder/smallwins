@@ -12,6 +12,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
+import { AuthProvider } from './hooks/useAuth';
 // import Nav from './components/Nav';
 
 const rootElement = document.getElementById('root');
@@ -27,7 +28,9 @@ const root = createRoot(rootElement);
 root.render(
   <StrictMode>
     <BrowserRouter>
+    <AuthProvider>
       <App />
+      </AuthProvider>
     </BrowserRouter>
   </StrictMode>
 )

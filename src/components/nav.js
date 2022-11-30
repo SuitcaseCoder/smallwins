@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter as Link, NavLink } from "react-router-dom";
+import { Route, Routes, Link } from 'react-router-dom'
 
 // import Home from "../pages/home";
 // import Today from "../pages/today";
@@ -17,25 +17,25 @@ const Nav = () => {
   return (
     <nav>
       <ul className="nav-links">
-        <NavLink exact to="/">
+        <Link exact="true" to="/">
           <li>SmallWins</li>
-        </NavLink>
-        <NavLink exact to="/Past">
+        </Link>
+        <Link exact="true" to="/Past">
           <li>Past</li>
-        </NavLink>
+        </Link>
 
-        <NavLink exact to="/Today">
+        <Link exact="true" to="/Today">
           <li>Today</li>
-        </NavLink>
+        </Link>
 
 {/* add logic to toggle these */}
-        <NavLink exact to="/login">
+        <Link exact="true" to="/login">
           <li>Login</li>
-        </NavLink>
+        </Link>
 
-        <NavLink exact to="/logout">
+        <Link exact="true" to="/logout">
           <li onClick={logout}>Logout</li>
-        </NavLink>
+        </Link>
       </ul>
     </nav>
   );

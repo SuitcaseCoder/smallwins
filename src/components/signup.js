@@ -1,7 +1,7 @@
 import React, { useState }  from 'react'
 import axios from "axios";
 import { BrowserRouter as Link } from "react-router-dom";
-import { Redirect } from "react-router";
+// import { Redirect } from "react-router";
 
 import '../css/getStarted.css';
 
@@ -54,10 +54,11 @@ const SignUp = () => {
         })
     }
 
-    return successfullyRegistered 
-    ? 
-    <Redirect to="/today" />
-    : 
+    // return successfullyRegistered 
+    // ? 
+    // <Redirect to="/today" />
+    // : 
+    return
          (
             <div>
                 <button onClick={getStarted}>click to create db / table</button>
