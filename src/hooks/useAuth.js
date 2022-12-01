@@ -7,12 +7,12 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
     const [user, setUser] = useLocalStorage("user", null);
-    console.log(user);
+    console.log("user in useAuth: ", user);
     // let's us re-direct the user
     const navigate = useNavigate();
 
     const login = async (data) => {
-        console.log(data);
+        console.log("data in useAuth: ",data);
         setUser(data);
         // onLogin, user redirects to today
         navigate("/dashboard/today")

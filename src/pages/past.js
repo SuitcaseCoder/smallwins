@@ -14,6 +14,7 @@ TimeAgo.addDefaultLocale(en)
 // format(Date.now() - 24 * 60 * 60 * 1000);
 
 const Past = () => {
+
   return (
     <div>
       <h1>Past Page</h1>
