@@ -16,6 +16,7 @@ TimeAgo.addDefaultLocale(en)
 const Past = () => {
   return (
     <div>
+      <h1>Past Page</h1>
       <h2><ReactTimeAgo date={Date.now() - 24 * 60 * 60 * 1000} locale="en-US" timeStyle="round"/></h2>
       <h2>DATE GOES HERE</h2>
       <ul>

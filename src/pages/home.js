@@ -3,7 +3,7 @@ import React from "react";
 import Nav from "../components/Nav";
 import Today from "./today";
 // import SignUp from "../components/SignUp";
-// import { Redirect } from "react-router-dom";
+
 
 export const Home = () => {
   console.log("HOME PAGE");
@@ -17,17 +17,6 @@ export const Home = () => {
         {/* <Today user_id={props.currUser.user_id}/> */}
       </div>
     )
-  // } 
-  // else {
-  // return (
-  //   <div>
-  //     <Redirect to="/" />
-  //     {/* <h4>home component</h4>
-  //     <div>{props.loginMsg}</div>
-  //     <p>Please try <Link to="/login">logging in</Link></p> */}
-  //   </div>
-  // );
-  // }
 }
 
 export default Home;

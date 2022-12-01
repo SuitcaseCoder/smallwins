@@ -20,6 +20,7 @@ export const AuthProvider = ({children}) => {
 
     const logout = () => {
         setUser(null);
+        console.log('logout from useAuth!')
         // onLogout, user redirects to /login
         navigate('/', {replace: true})
     }
