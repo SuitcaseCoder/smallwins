@@ -4,7 +4,9 @@
   box-sizing: border-box;
 }
 body {
-  background: #E3A587;
+  background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(227, 165, 135,1) 100%);
+  /* background: rgb(227, 165, 135); */
   color: #343330;
   font-family: "Amatic SC", cursive;
   min-height: 100vh;
