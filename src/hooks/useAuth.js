@@ -15,6 +15,8 @@ export const AuthProvider = ({children}) => {
         console.log("data in useAuth: ",data);
         setUser(data);
         // onLogin, user redirects to today
+        //POST req to /login with data 
+        
         navigate("/dashboard/today")
     }
 
