@@ -1,7 +1,8 @@
 // help from: https://codesandbox.io/s/react-router-v6-auth-demo-4jzltb?file=/src/hooks/useAuth.js
 import { createContext, useContext, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLocalStorage } from './useLocalStorage'
+import { useLocalStorage } from './useLocalStorage';
+import axios from 'axios';
 
 const AuthContext = createContext();
 
@@ -14,6 +15,14 @@ export const AuthProvider = ({children}) => {
     const login = async (data) => {
         console.log("data in useAuth: ",data);
         setUser(data);
+        console.log("USER:",user)
+
+        axios
+            .post('/login',user)
+            .then((res) => {
+                console.log('user logged in post request made');
+            })
+
         // onLogin, user redirects to today
         //POST req to /login with data 
         
