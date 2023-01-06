@@ -11,11 +11,13 @@ export const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        const {username, password} = e.target.elements
-        console.log(`username: ${username}, password: ${password}`);
+        const {username} = e.target.element;
+        // const {username, password} = e.target.elements
+        console.log("us, pw: ", username);
+        // console.log(`username: ${username}, password: ${password}`);
         login({
             username:username.value,
-            password:password.value
+            // password:password.value
         })
     }
 
@@ -25,9 +27,13 @@ export const Login = () => {
                     <h2>Login</h2>
                     <form onSubmit={handleLogin}>
                     <div>
-                    <input type="text" placeholder="username"
-                    name="username"
-                    label="email address" />
+                    <input 
+                        type="text" 
+                        placeholder="username"
+                        name="username"
+                        label="email address" 
+
+                    />
                     </div>
                     <div>
                     <input type="password" placeholder="password"
