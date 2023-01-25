@@ -11,7 +11,7 @@ export const AuthProvider = ({children}) => {
     console.log("user in useAuth: ", user);
     // let's us re-direct the user
     const navigate = useNavigate();
-
+// 📌📌📌 PICK UP HERE
     const login = async (data) => {
         console.log("data in useAuth: ",data);
         setUser(data);

@@ -9,16 +9,18 @@ export const Login = () => {
     const { login } = useAuth();
     console.log("login: ",login);
 
+    // const 
+
     const handleLogin = (e) => {
         e.preventDefault();
-        const {username} = e.target.element;
-        // const {username, password} = e.target.elements
-        console.log("us, pw: ", username);
+        console.log(e.target[0].value);
+
+        let username = e.target[0].value;
+        let password = e.target[1].value;
+         const loggedInUser = {username: username, password: password}
+        console.log("us, pw: ", username, password);
         // console.log(`username: ${username}, password: ${password}`);
-        login({
-            username:username.value,
-            // password:password.value
-        })
+        login(loggedInUser)
     }
 
         return (
@@ -32,7 +34,6 @@ export const Login = () => {
                         placeholder="username"
                         name="username"
                         label="email address" 
-
                     />
                     </div>
                     <div>
