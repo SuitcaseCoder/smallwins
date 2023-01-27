@@ -1,22 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from 'axios'
+
+
+import { useNavigate } from "react-router-dom";
 
 
 // todo is same as onesmallwin ... or win from todaywins.js
 const OneSmallWin = ({ newWins, setNewWins }) => {
  
+    // let's us re-direct the user
+    const navigate = useNavigate();
+
+
   // DELETE 
   const handleDelete = (id) => {
     console.log(id);
     axios
       .delete(`/deletesmallwin/${id}`)
-      .then(() => {
+      .then((res) => {
+        console.log(res.data);
         console.log("---DELETE BUTTON----")
         console.log(id);
-        
-        setNewWins(newWins.filter((el) => el.id !== id))
+
+        // setNewWins (hooks) can take a new value or a function from an old one to the new one --> 
+        setNewWins((newWins) => newWins.filter((el) => el.win_id !== id))
+        navigate("/dashboard/today")
       })
-  };
+
+     
+    };
+
+    // checks to see when this component renders
+    useEffect(() => {
+      console.log('render:', newWins);
+
+    }, [newWins])
 
 
   return (

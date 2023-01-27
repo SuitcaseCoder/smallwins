@@ -57,6 +57,7 @@ function Today(props) {
         newWins={newWins}
         setNewWins={setNewWins}
         user_id={newWins.user_id}
+        // fetchData={}
       />
       {celebrate ? <Celebrate /> : null}
     </div>
