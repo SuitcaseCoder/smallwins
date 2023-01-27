@@ -31,7 +31,7 @@ function Today(props) {
 
   // GUIDE: in the array, the first element is declaring a brand new state variable, the second item in the array is a function that lets us update that first state (similar to this.setState in that we can call it from an event handler),  only one thing (argument) can be passed into the useState() function, which will be the inital value of the state being created. so in this case our 'celebrate' state that was just created is going to start of with a value of false. So the array part is actually array destructuring happening
   const [celebrate, setCelebrate] = useState(false);
-  console.log("newWins", newWins.user_id);
+  // console.log("newWins", newWins.user_id);
   // if(!props.loginStatus){
   //   return (
   //     <div>

@@ -7,25 +7,24 @@ import axios from 'axios';
 const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
-    const [user, setUser] = useLocalStorage("user", null);
-    console.log("user in useAuth: ", user);
+    const [user, setUser] = useLocalStorage("user", {});
+
     // let's us re-direct the user
     const navigate = useNavigate();
+
 // 📌📌📌 PICK UP HERE
     const login = async (data) => {
-        console.log("data in useAuth: ",data);
-        setUser(data);
-        console.log("USER:",user)
 
         axios
-            .post('/login',user)
+            .post('/login',data)
             .then((res) => {
-                console.log('user logged in post request made');
+                console.log(res.data);
+                setUser(res.data);
             })
 
         // onLogin, user redirects to today
         //POST req to /login with data 
-        
+    
         navigate("/dashboard/today")
     }
 

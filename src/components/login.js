@@ -7,19 +7,14 @@ import { useAuth } from "../hooks/useAuth";
 
 export const Login = () => {
     const { login } = useAuth();
-    console.log("login: ",login);
-
-    // const 
 
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log(e.target[0].value);
 
         let username = e.target[0].value;
         let password = e.target[1].value;
          const loggedInUser = {username: username, password: password}
-        console.log("us, pw: ", username, password);
-        // console.log(`username: ${username}, password: ${password}`);
+        
         login(loggedInUser)
     }
 

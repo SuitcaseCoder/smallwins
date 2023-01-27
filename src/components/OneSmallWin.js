@@ -13,6 +13,7 @@ const OneSmallWin = ({ newWins, setNewWins }) => {
       .then(() => {
         console.log("---DELETE BUTTON----")
         console.log(id);
+        
         setNewWins(newWins.filter((el) => el.id !== id))
       })
   };
