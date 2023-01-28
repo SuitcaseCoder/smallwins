@@ -8,9 +8,6 @@ import { useNavigate } from "react-router-dom";
 // todo is same as onesmallwin ... or win from todaywins.js
 const OneSmallWin = ({ newWins, setNewWins }) => {
  
-    // let's us re-direct the user
-    const navigate = useNavigate();
-
 
   // DELETE 
   const handleDelete = (id) => {
@@ -24,7 +21,6 @@ const OneSmallWin = ({ newWins, setNewWins }) => {
 
         // setNewWins (hooks) can take a new value or a function from an old one to the new one --> 
         setNewWins((newWins) => newWins.filter((el) => el.win_id !== id))
-        navigate("/dashboard/today")
       })
 
      

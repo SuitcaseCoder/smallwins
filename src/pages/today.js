@@ -50,7 +50,10 @@ function Today(props) {
         setNewWins={setNewWins}
         addedWin={addedWin}
         setAddedWin={setAddedWin}
-        user_id={props.user_id}
+        // user_id={props}
+        currUser={props.currUser}
+
+        
 
       />
       <OneSmallWin

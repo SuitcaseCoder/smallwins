@@ -31,7 +31,7 @@ const SignUp = () => {
         console.log('getStarted fn');
         axios.get('/createdb', {
         }).then(res => {
-        console.log(res.status);
+        console.log(res.status, res.message);
         })
     }
 

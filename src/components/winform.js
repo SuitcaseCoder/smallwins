@@ -1,6 +1,7 @@
 import React from "react";
 import uuid from "react-uuid";
 import axios from 'axios'
+import { useAuth } from "../hooks/useAuth";
 
 
 const Winform = ({
@@ -11,16 +12,19 @@ const Winform = ({
   setCelebrate,
   addedWin,
   setAddedWin,
-  user_id
+  currUser
 }) => {
 
+  const { user, isAuthenticated } = useAuth();
+  // console.log(user.result[0].id);
 
   // here I can write js code and functions
   const inputTextHandler = (e) => {
     const newVal = e.target.value;
     setInputText(newVal);
+
     // deal with missing last letter later
-    setAddedWin({id: uuid(), win_title: newVal, user_id:user_id});
+    setAddedWin({id: uuid(), win_title: newVal, user_id:user.result[0].id});
   };
   // setNewWins([...newWins, { id: uuid(), win_title: inputText}]);
 
@@ -55,11 +59,12 @@ const Winform = ({
     // after a few seconds of celebrating, we are resetting the set celebrate to false
     setTimeout(() => {
       setCelebrate(false);
-    }, 900);
+    }, 400);
   };
 
   return (
     <form>
+        <p>{user.id}</p>
       <input
         type="text"
         placeholder="I did done did it ..."

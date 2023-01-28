@@ -65,7 +65,7 @@ export default function Routes() {
           </AuthenticatedRoute>
           {/* TODAY */}
           <AuthenticatedRoute path="/Today">
-              <Today />
+              <Today currUser={currUser}/>
           </AuthenticatedRoute>
 
           {/* PAST */}

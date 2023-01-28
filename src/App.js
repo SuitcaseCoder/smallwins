@@ -17,6 +17,7 @@ import { ProtectedLayout } from "./pages/ProtectedLayout";
 import { HomeLayout } from "./pages/HomeLayout";
 import Landing from "./pages/Landing";
 import Past from './pages/past'
+import DB from "./pages/DB";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
     <>
       <Routes>
         <Route element={<HomeLayout />}>
+          <Route path="/createdb" element={<DB />} />
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
