@@ -41,7 +41,7 @@ const Winform = ({
       
       // get request to all wins
       axios
-        .get("http://localhost:5000/allwins")
+        .get(`http://localhost:5000/allwins/${user.result[0].id}`)
         .then(res => {
           setNewWins(res.data);
         })

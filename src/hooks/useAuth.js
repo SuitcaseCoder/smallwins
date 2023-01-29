@@ -12,7 +12,6 @@ export const AuthProvider = ({children}) => {
     // let's us re-direct the user
     const navigate = useNavigate();
 
-// 📌📌📌 PICK UP HERE
     const login = async (data) => {
 
         axios

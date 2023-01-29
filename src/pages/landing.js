@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
+
 import Home from "./Home"
 // import { useState } from 'react/cjs/react.development'
 import { Redirect } from "react-router-dom";
@@ -23,12 +25,11 @@ import { Redirect } from "react-router-dom";
      // ---------------------------
 
         return(
-            <div>
-                <h1>Landing Page</h1>
-
+            <>
                 <Home />
                 {/* <Redirect to="/small-wins" /> */}
-            </div>
+            </>
+
         )
     // }
 }

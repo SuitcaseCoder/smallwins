@@ -20,7 +20,10 @@ const OneSmallWin = ({ newWins, setNewWins }) => {
         console.log(id);
 
         // setNewWins (hooks) can take a new value or a function from an old one to the new one --> 
-        setNewWins((newWins) => newWins.filter((el) => el.win_id !== id))
+        setNewWins((newWins) => newWins.filter((el) => 
+          // console.log('el: ', el.id)
+          el.id !== id
+        ))
       })
 
      
@@ -39,7 +42,7 @@ const OneSmallWin = ({ newWins, setNewWins }) => {
         // console.log("win one small win: " , win);
         return <li className="win-li" key={win.id}>
           {win.win_title}
-          <button onClick={() => handleDelete(win.win_id)} className="trash-btn">
+          <button onClick={() => handleDelete(win.id)} className="trash-btn">
           <i className="fas fa-trash"></i>
           </button>
               </li>

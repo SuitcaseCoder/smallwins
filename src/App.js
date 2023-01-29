@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 
 import {Routes, Route, useRoutes } from 'react-router-dom';
+import Grid from '@mui/material/Grid'; // Grid version 1
+import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
 
 
 // importing other tools
@@ -35,7 +37,6 @@ function App() {
           <Route path="today" element={<Today />} />
           <Route path="past" element={<Past />} />
         </Route>
-
       </Routes>    
      </>
   );

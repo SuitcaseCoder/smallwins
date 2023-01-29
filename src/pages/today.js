@@ -6,15 +6,19 @@ import Winform from "../components/winform";
 import Celebrate from "../components/celebrate";
 import OneSmallWin from "../components/OneSmallWin";
 import { Redirect } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+
 
 // this function runs when page loads/refreshes
 function Today(props) {
   const [newWins, setNewWins] = useState([]);
+  const { user, isAuthenticated } = useAuth();
 
   // useEffect to get from api 
   useEffect(() => {
+    console.log(user.result[0].id);
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:5000/allwins")
+      const result = await axios.get(`http://localhost:5000/allwins/${user.result[0].id}`)
       // const result = await axios("http://localhost:5000/createwinstable");
       // result.data is an array of objects where each object is a row from the db (wins table)
       setNewWins(result.data);
