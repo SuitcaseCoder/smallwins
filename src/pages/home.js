@@ -4,7 +4,10 @@ import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
 // import Item from '@mui/material/Item'
 
 
-import Container from '@mui/material/Container';
+// import Container from '@mui/material/Container';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 import Nav from "../components/Nav";
@@ -19,11 +22,25 @@ export const Home = () => {
   // console.log(user);
 
     return(
-      <div>
-        <h1>Small Wins</h1>
-        <h4>Celebrate your small wins daily and keep track of them forever!</h4>
-        <h5> You've been tracking for X days </h5>
-      </div>
+      <>
+ 
+      <Container fluid  justify-content-md-center>
+      <Row>
+        <Col className="align-items-stretch header-col">
+          <div className="transparent-layer">
+          <div>
+          <h1>small WINS</h1>
+          </div>
+          <div>
+            <h4>Celebrate your small wins daily and keep track of them forever!</h4>
+            <button className="btn-signup">Sign Up</button>
+        </div>
+        </div>
+        </Col>
+      </Row>
+    </Container>
+    </>
+        
     )
 }
 
