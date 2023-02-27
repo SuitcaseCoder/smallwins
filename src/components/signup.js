@@ -1,10 +1,14 @@
 import React, { useState }  from 'react'
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 import '../css/getStarted.css';
 
 const SignUp = () => {
+
+    // allows us to redirect
+    const navigate = useNavigate();
 
     // first name registration
     const [firstNameReg, setFirstNameReg] = useState('');
@@ -48,7 +52,12 @@ const SignUp = () => {
             console.log('user registered');
             console.log(response);
             setSuccessfullyRegistered(true);
-            // redirect to home page (today)
+            // redirect to login page (today)
+        }).then((res) => {
+            console.log(res);
+            console.log('signup success');
+            navigate("/login")
+
         })
     }
 

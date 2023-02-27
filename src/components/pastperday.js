@@ -1,6 +1,26 @@
+import axios from 'axios';
 import React from 'react';
+import { useEffect } from 'react';
 
 const PastPerDay = () => {
+
+    const prevWins = [];
+
+    useEffect(() => {
+        // call api or anything
+        console.log("past per day loaded");
+            axios.get('/login')
+            .then((res)=>{
+                console.log(res);
+                res.json();
+            })
+            .then((data)=>{
+                console.log('prevWins: ', data)
+            })
+     });
+    
+    
+
     return (
         <div>
             {/* send a get request with id for X day */}

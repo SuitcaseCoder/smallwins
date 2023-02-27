@@ -20,6 +20,13 @@ export const AuthProvider = ({children}) => {
                 console.log(res.data);
                 setUser(res.data);
             })
+            // .then((res)=> {
+            //     console.log('logged in, I think about to navigate to today')
+            //     navigate("/dashboard/today")
+            // })
+            // .catch((res) => {
+            //     console.log('res', res);
+            // })
 
         // onLogin, user redirects to today
         //POST req to /login with data 

@@ -1,4 +1,6 @@
 import React from "react";
+import {Link} from 'react-router-dom'
+
 import Grid from '@mui/material/Grid'; // Grid version 1
 import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
 // import Item from '@mui/material/Item'
@@ -33,7 +35,9 @@ export const Home = () => {
           </div>
           <div>
             <h4>Celebrate your small wins daily and keep track of them forever!</h4>
+            <Link exact="true" to="/signup">
             <button className="btn-signup">Sign Up</button>
+            </Link>
         </div>
         </div>
         </Col>

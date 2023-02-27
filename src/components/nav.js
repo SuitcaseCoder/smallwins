@@ -10,13 +10,20 @@ import { useAuth } from '../hooks/useAuth';
 
 const Nav = () => {
 
-  const { logout } = useAuth();
+  const { logout, user, isAuthenticated } = useAuth();
+  console.log(user);
+  console.log(isAuthenticated)
 
   const handleLogout = () => {
+    if(user){
     console.log("logged out clicked");
     sessionStorage.removeItem("userToken");
     sessionStorage.clear(); 
     logout();
+    } else {
+      console.log('user does not exist');
+    }
+    
   }
 
 
@@ -27,22 +34,28 @@ const Nav = () => {
           <li>SmallWins</li>
         </Link>
 
-        <Link exact="true" to="/dashboard/past">
+        {/* <Link exact="true" to="/dashboard/past">
           <li>Past</li>
-        </Link>
+        </Link> */}
 
-        <Link exact="true" to="/dashboard/Today">
-          <li>Today</li>
-        </Link>
+        {/* <Link exact="true" to="/dashboard/Today">
+          <li>My Small Wins</li>
+        </Link> */}
 
-{/* add logic to toggle these */}
-        <Link exact="true" to="/login">
+{/* if user exists, give option to logout, if not login */}
+
+        {/* {user ? 
+        <li onClick={handleLogout}>Logout</li> :        
+         <Link exact="true" to="/login">
+          <li>Login</li>
+        </Link>
+        } */}
+         
+         <Link exact="true" to="/login">
           <li>Login</li>
         </Link>
 
-        {/* <Navigate exact="true" to="/"> */}
-          <li onClick={handleLogout}>Logout</li>
-        {/* </Navigate> */}
+        <li onClick={handleLogout}>Logout</li>
       </ul>
     </nav>
   );
